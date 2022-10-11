@@ -23,8 +23,9 @@
 	".$row['content']."
 	</p>
 	";
-	if(!empty($row['file'])) {
-		readfile("upload/".$row['file']);
+	if(isset($row['file'])) {
+		echo $_SERVER['DOCUMENT_ROOT']."workspace/firstContainer/upload/".basename($row['file']);
+		readfile("workspace/firstContainer/upload/".basename($row['file']));
 	}
 	echo"
 	<p>
@@ -40,7 +41,6 @@
 	<p>";
 			
 	$query = "select * from comment where board='".$_GET['board']."' and no = ".$_GET['no'].";";
-echo $query;
 
 	$result =mysqli_query($conn, $query);
 	while($row = mysqli_fetch_array($result)) {
