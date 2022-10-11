@@ -12,10 +12,10 @@
 	<p>
 	</p>
 	<?php
-		echo "<form method='post' action='emailsend.php?id=".$_GET['id']."%pw=".$_GET['pw']."'>
+		echo "<form method='post' action='emailsend.php?id=".$_GET['id']."&pw=".$_GET['pw']."'>
 	
 	<p>
-	이메일: <input type="text" name="email">	
+	이메일: <input type='text' name='email'>	
 	</p>
 		
 	

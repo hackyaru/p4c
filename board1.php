@@ -4,11 +4,11 @@
 	게시판1
 </head>
 <body>
-	<form action="write.php?board=board1">
-		<input type='submit'
-			   value='글쓰기'
-			   />
-	</form>
+	<p>
+	</p>
+	<button onclick="location.href='/write.php?board=board1'">
+		글쓰기
+	</button>
 	<table border="1" width="1000" height="100">
 		<tr height="100">
 			<th width="100">글번호</th>

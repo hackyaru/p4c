@@ -14,14 +14,24 @@
 		</tr>
 		<?php
 		$conn = mysqli_connect("localhost","root","1234","page");
-		if($_GET['board']=='boardall') {
-			$query = "select * from board1, board2 "
-			if($_GET['type']=='textall'){
-				
-			}
-			
+		if($_POST['board']=='boardall') {
+			$query = "select * from board1, board2 ";
 		}
-		$query = "select * from board1";
+		else if($_POST['board']=='board1') {
+			$query = "select * from board1 ";
+		}
+		else{
+			$query = "select * from board2 ";
+		}
+		if($_POST['type']=='title') {
+			$query= $query."where title like '%".$_POST['text']."%';";
+		}
+		else if($_POST['type']=='content') {
+			$query= $query."where content like '%".$_POST['text']."%';";
+		}
+		else {
+			$query= $query."where title like '%".$_POST['text']."%' or content like '%".$_POST['text']."%';";
+		}
 		$result =mysqli_query($conn, $query);
 		while($row = mysqli_fetch_array($result)) {
 			print "<tr height='50'> <th>".$row['no']."</th><th><A href='write.php?board=board1&no=".$row['no']."'>".$row['title']."</A></th><th>".$row['id']."</th><th>".$row['star']."</th><th>".$row['view']."</th></tr>";
@@ -30,7 +40,6 @@
 	</table>
 	<p>
 	</p>
-	<a href='board2.php'>게시판2로 가기</a>
 	<p>
 	</p>
 	<form method="post" action="search.php">

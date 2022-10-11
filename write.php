@@ -7,6 +7,7 @@
 		글쓰기
 	</p>
 	<?php
+	$file="none";
 		echo "<form method='post' action='writesave.php?board=".$_GET['board']."'>
 	
 	
@@ -18,6 +19,9 @@
 	</p>
 	<p>
 	<input type='text' name='content' style='width:300px;height:200px;font-size:12px;'>	
+	</p>
+	<p>
+	<input type='file' name='file'>
 	</p>
 		
 	
